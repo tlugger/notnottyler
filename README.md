@@ -7,6 +7,6 @@ I'm not not Tyler. An engineer who's gotten slightly too comfortable with the ba
 
 
 ```python
-> Not Not 'Tyler'
-< True
+>>> Not Not 'Tyler'
+True
 ```
