@@ -1,6 +1,9 @@
 # dependencies
 /node_modules
 
+# next stuff
+.next/
+
 # testing
 /coverage
 
