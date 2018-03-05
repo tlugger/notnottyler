@@ -11,5 +11,5 @@ module.exports = {
       '/about': { page: '/about' }
     }
   },
-  assetPrefix: !debug ? '/notnottyler/' : ''
+  assetPrefix: !debug ? '/Next-gh-page-example/' : ''
 }
