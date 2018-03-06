@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-example-using-javascript-transforms",
+  "name": "notnottyler",
   "version": "1.0.0",
-  "description": "example site and blog",
+  "description": "my site and blog",
   "main": "index.js",
   "scripts": {
     "develop": "node_modules/.bin/gatsby develop",
@@ -18,7 +18,7 @@
     "personal",
     "blog"
   ],
-  "author": "gatsbyjs",
+  "author": "tlugger",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
