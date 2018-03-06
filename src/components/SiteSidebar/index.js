@@ -2,6 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import SiteNav from "../SiteNav"
 import SiteLinks from "../SiteLinks"
+import "./style.css"
 
 class SiteSidebar extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class SiteSidebar extends React.Component {
         <div className="card-image">
           <Link to={`/`}>
             <figure className="image">
-              <img src="https://avatars2.githubusercontent.com/u/10581772?s=400&u=ea5e24326b865709420d32e5e19ec553c115035c&v=4" />
+              <img className="image-circle" src="https://avatars2.githubusercontent.com/u/10581772?s=400&u=ea5e24326b865709420d32e5e19ec553c115035c&v=4" />
             </figure>
           </Link>
         </div>

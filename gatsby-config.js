@@ -13,7 +13,6 @@ module.exports = {
     siteTwitterUrl: `https://twitter.com/tluggnut`,
     siteTwitterPretty: `@tluggnut`,
   },
-  // pathPrefix: "/notnottyler",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
