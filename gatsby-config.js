@@ -6,6 +6,10 @@ module.exports = {
 
     siteEmailUrl: `tyler@notnottyler.com`,
     siteEmailPretty: `tyler@notnottyler.com`,
+    siteLinkedInUrl: `https://www.linkedin.com/in/tyler-lugger/`,
+    siteLinkedInPretty: `Tyler Lugger`,
+    siteGitHubUrl: `https://github.com/tlugger`,
+    siteGitHubPretty: `tlugger`,
     siteTwitterUrl: `https://twitter.com/tluggnut`,
     siteTwitterPretty: `@tluggnut`,
   },
