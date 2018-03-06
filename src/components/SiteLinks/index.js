@@ -24,6 +24,16 @@ class SiteLinks extends React.Component {
             </a>
           </li>
           <li>
+            <a href='https://www.linkedin.com/in/tyler-lugger/'>
+              <i className="fa fa-linkedin" /> Tyler Lugger
+            </a>
+          </li>
+          <li>
+            <a href='https://github.com/tlugger'>
+              <i className="fa fa-github" /> tlugger
+            </a>
+          </li>
+          <li>
             <a href={siteMetadata.siteTwitterUrl}>
               <i className="fa fa-twitter" /> {siteMetadata.siteTwitterPretty}
             </a>

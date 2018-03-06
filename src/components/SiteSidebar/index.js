@@ -7,8 +7,6 @@ class SiteSidebar extends React.Component {
   render() {
     const isHome = this.props.location.pathname === `/`
     const { siteMetadata } = this.props.data.site
-    // TODO, deal with image more nice like
-
     let header = (
       <div className="">
         <div className="card-image">
