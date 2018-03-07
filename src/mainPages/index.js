@@ -4,6 +4,7 @@ import Helmet from "react-helmet"
 import sortBy from "lodash/sortBy"
 import moment from "moment"
 import InsetPageLayout from "../components/Layouts/insetPage"
+import "./style.css"
 
 exports.frontmatter = {
   layoutType: `page`,
