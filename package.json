@@ -29,6 +29,7 @@
     "d3": "4.9.1",
     "gatsby": "latest",
     "gatsby-link": "latest",
+    "gatsby-plugin-google-analytics": "^1.0.24",
     "gatsby-plugin-sass": "^1.0.16",
     "gatsby-remark-prismjs": "latest",
     "gatsby-source-filesystem": "latest",
