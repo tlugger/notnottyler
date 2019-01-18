@@ -1,10 +1,10 @@
 ---
-title: Rejection
+title: Flatiron
 written: "2018-03-13"
 updated: "2018-03-13"
 layoutType: post
-path: "/rejection/"
-category: "Reflection"
+path: "/flatiron/"
+category: "Flatiron"
 description: "Mostly my time to reflect"
 ---
 

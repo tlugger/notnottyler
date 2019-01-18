@@ -1,3 +1,7 @@
 .image-circle{
   border-radius: 50%;
+  max-width: 50%;
+  position: relative;
+  vertical-align: middle;
+  transform: translateX(50%);
 }

@@ -12,6 +12,7 @@ class MasterLayout extends React.Component {
         <Helmet defaultTitle={siteMetadata.title}>
           <meta name="description" content={siteMetadata.siteDescr} />
           <meta name="keywords" content="articles" />
+          <link rel="shortcut icon" href="/static/favicon.ico" />
         </Helmet>
         {this.props.children}
       </div>

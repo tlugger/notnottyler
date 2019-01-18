@@ -13,7 +13,8 @@ class ContactMe extends React.Component {
     return (
       <InsetPageLayout {...this.props}>
         <div className="box container">
-          <p>I would love to hear from you!</p>
+          <h2>I would love to hear from you!</h2>
+          <p>Please reach out any time through email or social media. I like to talk tech, beer, and baseball.</p>
         </div>
       </InsetPageLayout>
     )

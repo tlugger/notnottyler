@@ -6,7 +6,7 @@ layoutType: page
 About Me
 ========
 
-I am a Computer Science student with experience in software engineering. I have over 4 years of experience in full stack development through professional, academic, and personal projects. However, I am always working on improving my skills and growing my passion for this field.
+I am Software Engineer with a hunger to learn and improve. I have several years of experience in full stack development through professional, academic, and personal projects. However, I am always working on growing myself professionally and holding onto the passion I have for the software field.
 
 Projects
 --------
