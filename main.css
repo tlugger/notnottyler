@@ -1,5 +1,10 @@
 html {
     font-family: 'Raleway', sans-serif;
+    background-color: #212121;
+}
+
+body {
+    color: #F9F6EE;
 }
 
 a {
@@ -11,25 +16,6 @@ a {
     margin: auto;
     margin-top: 2em;
     max-width: 24em;
-}
-
-.author {
-    visibility: hidden;
-}
-
-.button {
-  background-color: #57bc79; /* Green */
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10pt;
-  width: 9em;
-  position: absolute;
-  bottom: 2em;
-  right: 6em;
 }
 
 .container {
@@ -70,9 +56,22 @@ hr {
     margin-bottom: 1em;
 }
 
+.linkedin {
+    background-color:#ffffff;
+    border-radius: 5px; 
+}
+
 .logo-span {
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    margin-top: 2em;
+    max-width: 600px;
+}
+
+.profile-span {
+    display: flex;
+    justify-content: space-evenly;
     margin: auto;
     margin-top: 2em;
     max-width: 600px;
@@ -83,29 +82,4 @@ hr {
     display: block;
     margin: auto;
     max-width: 12em;   
-}
-
-.proj-img {
-    display: block;
-    margin: auto;
-    margin-top: 1em;
-    max-width: 22em;
-}
-
-.slider-post {
-    height: 18em;
-}
-
-.subtitle {
-    font-style: italic;
-    margin: auto;
-    margin-top: 1rem;
-    max-width: 22em;
-}
-
-.title {
-    display: block;
-    margin: auto;
-    margin-top: 1em;
-    max-width: 200px;
 }

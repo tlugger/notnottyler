@@ -1,6 +1,15 @@
-# www.robotstxt.org/
+# Crawling welcome!
+# Except for you
+User-agent: GPTBot
+Disallow: /
 
-# Robots welcome, enjoy my stuff
-# Allow crawling of all content
+# And you
+User-agent: ChatGPT-User
+Disallow: /
+
+# And you
+User-agent: Google-Extended
+Disallow: /
+
 User-agent: *
 Disallow:
