@@ -1,10 +1,15 @@
 html {
     font-family: 'Raleway', sans-serif;
-    background-color: #212121;
+    height: 100%;
 }
 
 body {
+    height: 100%;
     color: #F9F6EE;
+    background-image: url('assets/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 a {
@@ -22,7 +27,16 @@ a {
     display: block;
     margin: auto;
     max-width: 800px;
-    margin-bottom: 4em;
+    background-color: #212121;
+    margin-bottom: 1em;
+}
+
+.content-block {
+    border-width: 3px;
+    border-style: outset;
+    border-color: #F9F6EE;
+    border-radius: 16px;
+    padding: 10px;
 }
 
 .content-span {
@@ -33,12 +47,19 @@ a {
     max-width: 800px;
 }
 
+.video-span {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
 h2 {
     font-size: 12pt;
 }
 
 h3 {
     font-size: 18pt;
+    margin-bottom: 0px;
 }
 
 h5 {
@@ -48,6 +69,21 @@ h5 {
 
 hr {
     max-width: 50em;
+}
+
+em {
+    font-size: 10pt;
+    opacity: 0.5;
+}
+
+@counter-style circled-digits {
+    system: fixed;
+    symbols: 🔗 👟 🎧 👾;
+    suffix: "  ";
+}
+
+ul {
+    list-style: circled-digits;
 }
 
 .logos-img {
@@ -78,7 +114,7 @@ hr {
 }
 
 .profile {
-    border-radius: 50%;
+    border-radius: 75px;
     display: block;
     margin: auto;
     max-width: 12em;   
