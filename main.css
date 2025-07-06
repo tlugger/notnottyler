@@ -8,8 +8,72 @@ body {
     color: #F9F6EE;
     background-image: url('assets/background.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    body {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .container {
+        margin: 1em;
+        max-width: calc(100% - 2em);
+    }
+    
+    .profile-span {
+        flex-direction: column;
+        text-align: center;
+        gap: 1em;
+    }
+    
+    .logo-span {
+        justify-content: center;
+        gap: 1.5em;
+        flex-wrap: wrap;
+    }
+    
+    .video-span {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    
+    .video-span iframe {
+        width: 100%;
+        max-width: 384px;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .profile {
+        max-width: 8em;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+    
+    .container {
+        margin: 1.5em;
+        max-width: calc(100% - 3em);
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+    body {
+        background-attachment: fixed;
+    }
 }
 
 a {
