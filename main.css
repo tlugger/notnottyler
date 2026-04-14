@@ -1,3 +1,40 @@
+:root {
+    --bg: #E8DFD5;
+    --box-bg: rgba(51, 46, 43, 0.92);
+    --text: #F0EBE5;
+    --link: #7EBF8A;
+    --border: rgba(240, 235, 229, 0.06);
+    --shadow: rgba(0, 0, 0, 0.12);
+    --toggle-bg: rgba(61, 53, 47, 0.12);
+    --toggle-text: #3D352F;
+    --img-border: rgba(240, 235, 229, 0.12);
+
+    /* Tile tints — subtle earth-tone shifts */
+    --tint-profile: rgba(58, 48, 42, 0.92);
+    --tint-social: rgba(50, 46, 44, 0.92);
+    --tint-whoami: rgba(46, 48, 43, 0.92);
+    --tint-books: rgba(52, 44, 40, 0.92);
+    --tint-projects: rgba(48, 46, 50, 0.92);
+}
+
+[data-theme="dark"] {
+    --bg: #1C1917;
+    --box-bg: rgba(237, 232, 225, 0.9);
+    --text: #352F2B;
+    --link: #3D7340;
+    --border: rgba(53, 47, 43, 0.08);
+    --shadow: rgba(0, 0, 0, 0.18);
+    --toggle-bg: rgba(242, 237, 232, 0.15);
+    --toggle-text: #F0EBE5;
+    --img-border: rgba(53, 47, 43, 0.12);
+
+    --tint-profile: rgba(240, 234, 226, 0.9);
+    --tint-social: rgba(235, 232, 228, 0.9);
+    --tint-whoami: rgba(232, 236, 230, 0.9);
+    --tint-books: rgba(238, 230, 224, 0.9);
+    --tint-projects: rgba(234, 232, 238, 0.9);
+}
+
 html {
     font-family: 'Raleway', sans-serif;
     height: 100%;
@@ -5,134 +42,142 @@ html {
 
 body {
     height: 100%;
-    color: #F9F6EE;
-    background-image: url('assets/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: var(--bg);
     min-height: 100vh;
+    margin: 0;
 }
 
-/* Mobile-first responsive design */
-@media (max-width: 768px) {
-    body {
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .container {
-        margin: 1em;
-        max-width: calc(100% - 2em);
-    }
-    
-    .profile-span {
-        flex-direction: column;
-        text-align: center;
-        gap: 1em;
-    }
-    
-    .logo-span {
-        justify-content: center;
-        gap: 1.5em;
-        flex-wrap: wrap;
-    }
-    
-    .video-span {
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-    }
-    
-    .video-span iframe {
-        width: 100%;
-        max-width: 384px;
-        height: auto;
-        aspect-ratio: 16/9;
-    }
-    
-    .profile {
-        max-width: 8em;
-    }
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "profile   profile   social"
+        "whoami    books      books"
+        "projects  projects   projects";
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2em 1em;
 }
 
-/* Tablet styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-    body {
-        background-attachment: fixed;
-    }
-    
-    .container {
-        margin: 1.5em;
-        max-width: calc(100% - 3em);
-    }
-}
-
-/* Desktop styles */
-@media (min-width: 1025px) {
-    body {
-        background-attachment: fixed;
-    }
-}
-
-a {
-    color: #57bc79;
-}
-
-.article {
-    display: block;
-    margin: auto;
-    margin-top: 2em;
-    max-width: 24em;
-}
-
-.container {
-    display: block;
-    margin: auto;
-    max-width: 800px;
-    background-color: #212121;
-    margin-bottom: 1em;
-}
-
-.content-block {
-    border-width: 3px;
-    border-style: outset;
-    border-color: #F9F6EE;
+/* Tiles */
+.tile {
+    background-color: var(--box-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 10px;
+    padding: 1.5em;
+    box-shadow: 0 2px 8px var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.content-span {
+.tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.tile-profile  { grid-area: profile; background-color: var(--tint-profile); }
+.tile-social   { grid-area: social; background-color: var(--tint-social); }
+.tile-whoami   { grid-area: whoami; background-color: var(--tint-whoami); }
+.tile-books    { grid-area: books; background-color: var(--tint-books); }
+.tile-projects { grid-area: projects; background-color: var(--tint-projects); }
+
+/* Projects sub-grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "scope   scope   scope"
+        "facial  facial  plant";
+    gap: 16px;
+    margin-top: 1em;
+}
+
+.project-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25em;
+    overflow: hidden;
+}
+
+.project-scope  { grid-area: scope; }
+.project-facial { grid-area: facial; }
+.project-plant  { grid-area: plant; }
+
+/* Profile */
+.profile-span {
     display: flex;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 2em;
-    max-width: 800px;
+    align-items: center;
+    gap: 1.5em;
 }
 
-.video-span {
+.profile {
+    border-radius: 75px;
+    display: block;
+    max-width: 10em;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+}
+
+/* Social tile */
+.tile-social {
     display: flex;
-    justify-content: space-evenly;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
 }
 
-h2 {
-    font-size: 12pt;
+.tile-social .logos-links {
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logos-img {
+    border-radius: 0%;
+    max-width: 2.5em;
+    transition: transform 0.2s ease;
+}
+
+.logos-img:hover {
+    transform: scale(1.15);
+}
+
+.linkedin {
+    background-color: var(--box-bg);
+    border-radius: 5px;
+}
+
+/* Typography */
+a {
+    color: var(--link);
 }
 
 h3 {
     font-size: 18pt;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 h5 {
     font-size: 14pt;
-    font-style: bold;
+    font-weight: bold;
+    margin-top: 0;
 }
 
 hr {
-    max-width: 50em;
+    max-width: 100%;
+    border-color: var(--text);
+    opacity: 0.2;
 }
 
 em {
@@ -142,7 +187,7 @@ em {
 
 @counter-style circled-digits {
     system: fixed;
-    symbols: 🔗 👟 🎧 👾;
+    symbols: 🧑‍💻 👟 🎧 👶;
     suffix: "  ";
 }
 
@@ -150,36 +195,212 @@ ul {
     list-style: circled-digits;
 }
 
-.logos-img {
-    border-radius: 0%;
-    max-width: 2em;
-    margin-bottom: 1em;
-}
-
-.linkedin {
-    background-color:#ffffff;
-    border-radius: 5px; 
-}
-
-.logo-span {
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 2em;
-    max-width: 600px;
-}
-
-.profile-span {
+/* Videos */
+.video-span {
     display: flex;
     justify-content: space-evenly;
-    margin: auto;
-    margin-top: 2em;
-    max-width: 600px;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
-.profile {
-    border-radius: 75px;
+.video-span iframe {
+    flex: 1;
+    min-width: 260px;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Article embed */
+.article {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.article iframe {
+    max-width: 100%;
+}
+
+/* Bookshelf */
+.bookshelf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5em 0 1em;
+}
+
+.shelf {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 13em 0 1em;
+    position: relative;
+}
+
+a.book {
+    width: 36px;
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;
     display: block;
-    margin: auto;
-    max-width: 12em;   
+}
+
+a.book:hover {
+    transform: translateY(-6px);
+}
+
+.spine-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 8pt;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 8px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Lying-down book (currently reading) */
+a.book-flat {
+    display: block;
+    width: 160px;
+    height: 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+a.book-flat:hover {
+    transform: translateY(-3px);
+}
+
+.flat-title {
+    font-size: 7pt;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shelf-board {
+    width: 100%;
+    max-width: 500px;
+    height: 10px;
+    background: linear-gradient(to bottom, #8B7355, #6B5740);
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Project image */
+.project-img {
+    display: block;
+    margin: 1em auto;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    border: 1px solid var(--img-border);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 100;
+    background: var(--toggle-bg);
+    color: var(--toggle-text);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
+.theme-toggle::before {
+    content: '\263E';
+}
+
+[data-theme="dark"] .theme-toggle::before {
+    content: '\2600';
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "profile   profile"
+            "social    whoami"
+            "books     books"
+            "projects  projects";
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "scope"
+            "facial"
+            "plant";
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "profile"
+            "social"
+            "whoami"
+            "books"
+            "projects";
+        padding: 1em;
+    }
+
+    .profile-span {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile {
+        max-width: 8em;
+    }
+
+    .video-span {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-span iframe {
+        width: 100%;
+        min-width: unset;
+    }
 }
