@@ -10,67 +10,98 @@
 </head>
 
 <body>
-  <div class="container content-block">
-    <span class="profile-span"">
-      <div>
-        <img class="profile" src="assets/profile.png" alt="Image of notnottyler">
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"></button>
+
+  <main class="bento-grid">
+    <div class="tile tile-profile">
+      <div class="profile-span">
+        <div>
+          <img class="profile" src="assets/profile.png" alt="Image of notnottyler">
+        </div>
+        <div>
+          <h1>Tyler Lugger</h1>
+          <ul>
+            <li>Software Architect</li>
+            <li>Slow runner</li>
+            <li>Jam enjoyer</li>
+            <li>Happy father</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h1>Tyler Lugger</h1>
-        <ul>
-          <li>Staff Software Engineer</li>
-          <li>Slow runner</li>
-          <li>Jam enjoyer</li>
-          <li>Distracted gamer</li>
-        </ul>
-      </div>
-    </span>
-    <span class="logo-span">
-      <a href="https://tylerkno.ws/github">
-        <img class="logos-img" src="assets/github.svg" alt="GitHub logo">
-      </a>
-      <a href="https://tylerkno.ws/linkedin">
-        <img class="logos-img linkedin" src="assets/linkedin.svg" alt="LinkedIn logo">
-      </a>
-      <a href="https://tylerkno.ws/instagram">
-        <img class="logos-img" src="assets/instagram.svg" alt="Instagram logo">
-      </a>
-      <a href="https://tylerkno.ws/bsky">
-        <img class="logos-img" src="assets/bluesky.svg" alt="Bluesky logo">
-      </a>
-    </span>
-  </div>
-
-  <div class="container content-block">
-    <h3>whoami</h3>
-    <hr>
-    <p>I'm not not Tyler. An engineer who's gotten slightly too comfortable with the back-end. So I'm gonna try boosting my front-end skills. Design? Bit of a work in progress. Code quality? Getting better every day. Cheesy programming puns? Never ending!</p>
-  </div>
-
-  <div class="container content-block">
-    <h3>readme</h3>
-    <hr>
-    <p>Check out what I'm currently reading <a href=https://tylerkno.ws/what-i-am-reading>here</a>!</p>
-    <p><em>TODO: I'd like to make this look like a bookshelf where books expand and open reviews written by me.</em></p>
-  </div>
-
-  <div class="container content-block">
-    <h3>projects</h3>
-    <hr>
-    <p>In my free time I like to tinker with hardware projects. Sometimes I'll design and build websites to step outside of my comfort zone. Some of my projects have been featured on tech sites and blogs. These are a few of my favorites</p>
-    
-    <h5>facial recognition</h5>
-    <p>Over the summer of my first internship, I integrated facial recognition into a distributed IoT platform. This led to a couple of applications including an interface-free coffee counter and a self-targeting dart gun!</p>
-    <span class="video-span">
-      <iframe width="384" height="216" src="https://www.youtube.com/embed/e30xSbWdH8g" frameborder="0" allow="accelerometer;"></iframe>
-      <iframe width="384" height="216" src="https://www.youtube.com/embed/ClWYLkUniJc" frameborder="0" allow="accelerometer;"></iframe>
-    </span>
-
-    <h5>desk plant automated-irrigation</h5>
-    <p>To keep my desk plant from dying I automated its watering using a Raspberry Pi, hobby pump, and a soil moisture sensor. This project was featured on the front page of <a href="http://hackster.io">hackster.io</a>. I plan to redo this project using TinyGo on an Arduino.</p>
-    <div class="article">
-      <iframe frameborder='0' height='385' scrolling='no' src='https://www.hackster.io/notnottyler/herb-ert-a-desk-plant-with-automated-irrigation-b03086/embed' width='350'></iframe>
     </div>
-  </div>
+
+    <div class="tile tile-social">
+      <h3>~/links</h3>
+      <div class="logos-links">
+        <a href="https://tylerkno.ws/github"><img class="logos-img" src="assets/github.svg" alt="GitHub logo"></a>
+        <a href="https://tylerkno.ws/linkedin"><img class="logos-img linkedin" src="assets/linkedin.svg" alt="LinkedIn logo"></a>
+        <a href="https://tylerkno.ws/instagram"><img class="logos-img" src="assets/instagram.svg" alt="Instagram logo"></a>
+        <a href="https://tylerkno.ws/bsky"><img class="logos-img" src="assets/bluesky.svg" alt="Bluesky logo"></a>
+      </div>
+    </div>
+
+    <div class="tile tile-whoami">
+      <h3>whoami</h3>
+      <hr>
+      <p>I'm not not Tyler. I am a staff+ engineer with experience in building reliable and scalable backend systems.</p>
+      <p>I spend most of my time working across Go and Rust services and infrastructure, with a recent focus in financial platforms where correctness really matters.</p>
+      <p>On the side, I like to build small utilities and silly automations that make me happy</p>
+    </div>
+
+    <div class="tile tile-books">
+      <h3>readme</h3>
+      <hr>
+      <div class="bookshelf">
+        <div class="shelf">
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book" style="background-color: #6B4E3D; height: 150px;" title="Into the Wild — Jon Krakauer"><span class="spine-title">Into the Wild</span></a>
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book" style="background-color: #2F4F4F; height: 120px;" title="Siddhartha — Hermann Hesse"><span class="spine-title">Siddhartha</span></a>
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book" style="background-color: #8B5E3C; height: 135px;" title="The Road — Cormac McCarthy"><span class="spine-title">The Road</span></a>
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book" style="background-color: #5B7B6F; height: 160px;" title="The Grapes of Wrath — John Steinbeck"><span class="spine-title">The Grapes of Wrath</span></a>
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book" style="background-color: #7D5A50; height: 145px;" title="The River of Doubt — Candice Millard"><span class="spine-title">The River of Doubt</span></a>
+          <a href="https://tylerkno.ws/what-i-am-reading" class="book-flat" style="background-color: #4A5A4F;" title="Currently reading: The Thousand-Mile War — Brian Garfield"><span class="flat-title">The Thousand-Mile War</span></a>
+        </div>
+        <div class="shelf-board"></div>
+      </div>
+      <p style="text-align: center;">See what I'm reading on <a href="https://tylerkno.ws/what-i-am-reading">StoryGraph</a></p>
+    </div>
+
+    <div class="tile tile-projects">
+      <h3>~/projects</h3>
+      <hr>
+      <div class="projects-grid">
+        <div class="project-card project-scope">
+          <h5>rockiscope</h5>
+          <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi. Check it out on <a href="https://github.com/tlugger/rockiscope">GitHub</a>.</p>
+          <img class="project-img" src="assets/rockiscope-post.png" alt="Rockiscope Bluesky post showing game day horoscope and prediction">
+        </div>
+        <div class="project-card project-facial">
+          <h5>facial recognition</h5>
+          <p>Over the summer of my first internship, I integrated facial recognition into a distributed IoT platform. This led to a couple of applications including an interface-free coffee counter and a self-targeting dart gun!</p>
+          <span class="video-span">
+            <iframe src="https://www.youtube.com/embed/e30xSbWdH8g" frameborder="0" allow="accelerometer;" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/ClWYLkUniJc" frameborder="0" allow="accelerometer;" allowfullscreen></iframe>
+          </span>
+        </div>
+        <div class="project-card project-plant">
+          <h5>desk plant automated-irrigation</h5>
+          <p>To keep my desk plant from dying I automated its watering using a Raspberry Pi, hobby pump, and a soil moisture sensor. This project was featured on the front page of <a href="http://hackster.io">hackster.io</a>.</p>
+          <div class="article">
+            <iframe frameborder='0' height='385' scrolling='no' src='https://www.hackster.io/notnottyler/herb-ert-a-desk-plant-with-automated-irrigation-b03086/embed' width='350'></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    var saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  </script>
 </body>
 </html>
