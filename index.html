@@ -1,17 +1,57 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tyler Lugger</title>
+  <meta name="description" content="Tyler Lugger — staff+ software engineer building reliable, scalable backends in Go and Rust, with a focus on financial platforms. Projects, links, and reading.">
+  <meta name="author" content="Tyler Lugger">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a1a1e">
+
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <title>Tyler Lugger — Software architect &amp; engineer</title>
+
+  <link rel="canonical" href="https://notnottyler.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tyler Lugger">
+  <meta property="og:title" content="Tyler Lugger — Software architect &amp; engineer">
+  <meta property="og:description" content="Staff+ engineer focused on reliable Go and Rust backends and infrastructure. Personal site with projects, links, and reading list.">
+  <meta property="og:url" content="https://notnottyler.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://notnottyler.com/assets/profile.png">
+  <meta property="og:image:alt" content="Tyler Lugger">
+
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tyler Lugger",
+    "alternateName": "notnottyler",
+    "url": "https://notnottyler.com/",
+    "image": "https://notnottyler.com/assets/profile.png",
+    "jobTitle": "Software Architect",
+    "description": "Staff+ engineer with experience in reliable and scalable backend systems, Go and Rust services, and infrastructure.",
+    "sameAs": [
+      "https://github.com/tlugger",
+      "https://linkedin.com/in/notnottyler",
+      "https://instagram.com/notnottyler",
+      "https://bsky.app/profile/tylerkno.ws"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"></button>
-
   <main class="bento-grid">
     <div class="tile tile-profile">
       <div class="profile-span">
@@ -72,7 +112,12 @@
         <div class="project-card project-scope">
           <h5>rockiscope</h5>
           <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi. Check it out on <a href="https://github.com/tlugger/rockiscope">GitHub</a>.</p>
-          <img class="project-img" src="assets/rockiscope-post.png" alt="Rockiscope Bluesky post showing game day horoscope and prediction">
+          <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:qqgwambml7qxpipc6tis5cis/app.bsky.feed.post/3mjaz4eqej52f" data-bluesky-cid="bafyreiavw4ic7nig3ecpzswola6umxve3cwislqludy7p5rto5jxzljfw4" data-bluesky-embed-color-mode="system"><p lang="">⚾ Rockies @ San Diego Padres
+          🕐 6:40 PM MDT at Petco Park
+          🪖 Ryan Feltner (4.32 ERA, 1-0)
+          📊 6-8 | vs SD: 0-2 | L2
+
+          🔮 A slight celestial nudge toward a Rockies defeat (63%)<br><br><a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis/post/3mjaz4eqej52f?ref_src=embed">[image or embed]</a></p>&mdash; Rockiscope ♋ (<a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis?ref_src=embed">@rockiscope.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis/post/3mjaz4eqej52f?ref_src=embed">Apr 11, 2026 at 5:40 PM</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
         </div>
         <div class="project-card project-facial">
           <h5>facial recognition</h5>
@@ -92,16 +137,5 @@
       </div>
     </div>
   </main>
-
-  <script>
-    function toggleTheme() {
-      var current = document.documentElement.getAttribute('data-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    }
-    var saved = localStorage.getItem('theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
-  </script>
 </body>
 </html>

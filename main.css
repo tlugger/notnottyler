@@ -17,24 +17,6 @@
     --tint-projects: rgba(48, 46, 50, 0.92);
 }
 
-[data-theme="dark"] {
-    --bg: #1C1917;
-    --box-bg: rgba(237, 232, 225, 0.9);
-    --text: #352F2B;
-    --link: #3D7340;
-    --border: rgba(53, 47, 43, 0.08);
-    --shadow: rgba(0, 0, 0, 0.18);
-    --toggle-bg: rgba(242, 237, 232, 0.15);
-    --toggle-text: #F0EBE5;
-    --img-border: rgba(53, 47, 43, 0.12);
-
-    --tint-profile: rgba(240, 234, 226, 0.9);
-    --tint-social: rgba(235, 232, 228, 0.9);
-    --tint-whoami: rgba(232, 236, 230, 0.9);
-    --tint-books: rgba(238, 230, 224, 0.9);
-    --tint-projects: rgba(234, 232, 238, 0.9);
-}
-
 html {
     font-family: 'Raleway', sans-serif;
     height: 100%;

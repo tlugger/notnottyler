@@ -1,6 +1,8 @@
 NotNotTyler
 ===========
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5d8d3c47-86ca-4865-9803-b2919066bcb5/deploy-status)](https://app.netlify.com/projects/notnottyler/deploys)
+
 # Personal Site
 
 I'm not not Tyler. An engineer who's gotten slightly too comfortable with the back-end. So I'm gonna try boosting my front-end skills. Design? Bit of a work in progress. Code quality? Getting better every day. Cheesy programming puns? Never ending!
