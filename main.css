@@ -1,20 +1,31 @@
 :root {
     --bg: #E8DFD5;
-    --box-bg: rgba(51, 46, 43, 0.92);
     --text: #F0EBE5;
-    --link: #7EBF8A;
-    --border: rgba(240, 235, 229, 0.06);
-    --shadow: rgba(0, 0, 0, 0.12);
+    --text-muted: rgba(240, 235, 229, 0.65);
+    --link: #D49B7C;
+    --border: rgba(240, 235, 229, 0.08);
+    --img-border: rgba(240, 235, 229, 0.12);
     --toggle-bg: rgba(61, 53, 47, 0.12);
     --toggle-text: #3D352F;
-    --img-border: rgba(240, 235, 229, 0.12);
 
-    /* Tile tints — subtle earth-tone shifts */
-    --tint-profile: rgba(58, 48, 42, 0.92);
-    --tint-social: rgba(50, 46, 44, 0.92);
-    --tint-whoami: rgba(46, 48, 43, 0.92);
-    --tint-books: rgba(52, 44, 40, 0.92);
-    --tint-projects: rgba(48, 46, 50, 0.92);
+    /* Tile colors — chromatic earth-tone family, low saturation */
+    --tint-profile:  #463528;  /* warm clay */
+    --tint-social:   #394539;  /* sage */
+    --tint-whoami:   #4A3530;  /* rust */
+    --tint-books:    #2E261F;  /* deep espresso */
+    --tint-projects: #3D352B;  /* taupe */
+
+    /* Layered shadow + top-edge highlight for depth */
+    --tile-shadow:
+        0 1px 2px rgba(40, 28, 18, 0.08),
+        0 10px 28px rgba(40, 28, 18, 0.10),
+        inset 0 1px 0 rgba(255, 240, 220, 0.05);
+    --tile-shadow-hover:
+        0 2px 4px rgba(40, 28, 18, 0.10),
+        0 18px 44px rgba(40, 28, 18, 0.16),
+        inset 0 1px 0 rgba(255, 240, 220, 0.07);
+
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
 }
 
 html {
@@ -45,50 +56,173 @@ body {
 
 /* Tiles */
 .tile {
-    background-color: var(--box-bg);
+    position: relative;
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5em;
-    box-shadow: 0 2px 8px var(--shadow);
+    border-radius: 18px;
+    padding: 1.75em;
+    box-shadow: var(--tile-shadow);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle paper-grain noise — kills the "digital flatness" */
+.tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.tile > * {
+    position: relative;
+    z-index: 1;
 }
 
 .tile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--shadow);
+    transform: translateY(-3px);
+    box-shadow: var(--tile-shadow-hover);
 }
 
-.tile-profile  { grid-area: profile; background-color: var(--tint-profile); }
-.tile-social   { grid-area: social; background-color: var(--tint-social); }
-.tile-whoami   { grid-area: whoami; background-color: var(--tint-whoami); }
-.tile-books    { grid-area: books; background-color: var(--tint-books); }
+.tile-profile  { grid-area: profile;  background-color: var(--tint-profile); }
+.tile-social   { grid-area: social;   background-color: var(--tint-social); }
+.tile-whoami   { grid-area: whoami;   background-color: var(--tint-whoami); }
+.tile-books    { grid-area: books;    background-color: var(--tint-books); }
 .tile-projects { grid-area: projects; background-color: var(--tint-projects); }
 
-/* Projects sub-grid */
+/* Projects mini-bento — alternating stack (small/wide swap per row) */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-        "scope   scope   scope"
-        "facial  facial  plant";
-    gap: 16px;
-    margin-top: 1em;
+        "megagrep  scope   scope"
+        "facial    facial  plant";
+    gap: 1.25em;
+    margin-top: 1.5em;
 }
 
 .project-card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25em;
+    position: relative;
+    border-radius: 14px;
+    padding: 1.5em;
+    border: 1px solid rgba(240, 235, 229, 0.06);
+    box-shadow:
+        0 1px 2px rgba(20, 14, 8, 0.12),
+        0 4px 14px rgba(20, 14, 8, 0.08),
+        inset 0 1px 0 rgba(255, 240, 220, 0.06);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-width: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 2px 4px rgba(20, 14, 8, 0.14),
+        0 10px 26px rgba(20, 14, 8, 0.14),
+        inset 0 1px 0 rgba(255, 240, 220, 0.08);
+}
+
+/* Inner tints — lifted (lighter than the projects taupe parent) */
+.project-scope    { grid-area: scope;    background-color: #57412F; }  /* lifted clay */
+.project-facial   { grid-area: facial;   background-color: #455243; }  /* lifted sage */
+.project-plant    { grid-area: plant;    background-color: #5A3E33; }  /* lifted rust */
+.project-megagrep {
+    grid-area: megagrep;
+    background-color: #4F4831;  /* lifted khaki */
+    display: flex;
+    flex-direction: column;
+}
+
+.wip-graphic {
+    margin: auto 0;
+    padding: 0.1em 0;
+    text-align: center;
+    font-size: 3.5em;
+    line-height: 1;
+    opacity: 0.18;
+    user-select: none;
+}
+
+/* Status pill — for "under development" and similar flags */
+.tag-wip {
+    background: rgba(220, 165, 90, 0.14);
+    border-color: rgba(220, 165, 90, 0.38);
+    color: #E5C088;
+    font-weight: 500;
+}
+
+.tag-wip::before {
+    content: '●';
+    margin-right: 0.4em;
+    font-size: 7pt;
+    vertical-align: middle;
+    opacity: 0.85;
+}
+
+.project-card h5 {
+    margin-bottom: 0.4em;
+    letter-spacing: -0.01em;
+}
+
+/* Featured (rockiscope): text + media side-by-side, contained inside its tile */
+.project-featured {
+    display: grid;
+    grid-template-columns: 1fr minmax(240px, 320px);
+    gap: 1.5em;
+    align-items: start;
+}
+
+.project-featured .project-media {
+    max-height: 380px;
+}
+
+.project-content { min-width: 0; }
+
+/* Tag chips — small mono pills */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    margin: 0 0 1em;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.22em 0.7em;
+    background: rgba(240, 235, 229, 0.06);
+    border: 1px solid rgba(240, 235, 229, 0.10);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 8.5pt;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+}
+
+/* Constrained, uniform media containers */
+.project-media {
+    width: 100%;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.project-scope  { grid-area: scope; }
-.project-facial { grid-area: facial; }
-.project-plant  { grid-area: plant; }
+.project-media iframe,
+.project-media .bluesky-embed {
+    width: 100% !important;
+    max-width: 100% !important;
+    border: 0;
+    display: block;
+    margin: 0;
+}
+
+.project-featured .project-media .bluesky-embed {
+    margin: 0;
+}
 
 /* Profile */
 .profile-span {
@@ -135,7 +269,7 @@ h1 {
 }
 
 .linkedin {
-    background-color: var(--box-bg);
+    background-color: var(--tint-books);
     border-radius: 5px;
 }
 
@@ -145,21 +279,27 @@ a {
 }
 
 h3 {
-    font-size: 18pt;
+    font-family: var(--mono);
+    font-size: 13pt;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     margin-top: 0;
     margin-bottom: 0;
+    color: var(--text-muted);
 }
 
 h5 {
-    font-size: 14pt;
-    font-weight: bold;
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     margin-top: 0;
 }
 
 hr {
     max-width: 100%;
-    border-color: var(--text);
-    opacity: 0.2;
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 1em 0 1.25em;
 }
 
 em {
@@ -177,32 +317,27 @@ ul {
     list-style: circled-digits;
 }
 
-/* Videos */
+/* Video embeds — uniform 16:9 inside project media */
 .video-span {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1em;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
 .video-span iframe {
-    flex: 1;
-    min-width: 260px;
-    max-width: 100%;
+    width: 100%;
     aspect-ratio: 16/9;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 0;
+    display: block;
 }
 
-/* Article embed */
-.article {
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-}
-
+/* Article embed (Hackster) */
 .article iframe {
-    max-width: 100%;
+    width: 100%;
+    height: 385px;
+    border: 0;
+    border-radius: 10px;
+    display: block;
 }
 
 /* Bookshelf */
@@ -345,9 +480,14 @@ a.book-flat:hover {
             "projects  projects";
     }
 
+    .project-featured {
+        grid-template-columns: 1fr;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
+            "megagrep"
             "scope"
             "facial"
             "plant";
