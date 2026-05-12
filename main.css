@@ -14,6 +14,7 @@
     --tint-whoami:   #4A3530;  /* rust */
     --tint-books:    #2E261F;  /* deep espresso */
     --tint-projects: #3D352B;  /* taupe */
+    --tint-blog:     #2F3D44;  /* weathered petrol */
 
     /* Layered shadow + top-edge highlight for depth */
     --tile-shadow:
@@ -47,6 +48,7 @@ body {
     grid-template-areas:
         "profile   profile   social"
         "whoami    books      books"
+        "blog      blog       blog"
         "projects  projects   projects";
     gap: 16px;
     max-width: 1100px;
@@ -94,14 +96,102 @@ body {
 .tile-whoami   { grid-area: whoami;   background-color: var(--tint-whoami); }
 .tile-books    { grid-area: books;    background-color: var(--tint-books); }
 .tile-projects { grid-area: projects; background-color: var(--tint-projects); }
+.tile-blog     { grid-area: blog;     background-color: var(--tint-blog); }
+
+/* Blog tile */
+.blog-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    margin-bottom: 1.25em;
+}
+
+.blog-tagline {
+    margin: 0;
+    color: var(--text-muted);
+    max-width: 56ch;
+}
+
+.blog-feed-link {
+    font-family: var(--mono);
+    font-size: 9.5pt;
+    white-space: nowrap;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.blog-feed-link:hover { opacity: 1; }
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1em;
+}
+
+.blog-post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1.25em 1.4em;
+    background-color: #384952;  /* lifted petrol */
+    border: 1px solid rgba(240, 235, 229, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow:
+        0 1px 2px rgba(20, 14, 8, 0.12),
+        0 4px 14px rgba(20, 14, 8, 0.08),
+        inset 0 1px 0 rgba(255, 240, 220, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-width: 0;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 2px 4px rgba(20, 14, 8, 0.14),
+        0 10px 26px rgba(20, 14, 8, 0.14),
+        inset 0 1px 0 rgba(255, 240, 220, 0.08);
+}
+
+.blog-post-date {
+    font-family: var(--mono);
+    font-size: 8.5pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.blog-post-card h5 {
+    margin: 0;
+    font-size: 12.5pt;
+}
+
+.blog-post-summary {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 10.5pt;
+    line-height: 1.5;
+}
+
+.blog-post-link {
+    margin-top: auto;
+    padding-top: 0.4em;
+    color: var(--link);
+    font-family: var(--mono);
+    font-size: 9pt;
+}
 
 /* Projects mini-bento — alternating stack (small/wide swap per row) */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-        "megagrep  scope   scope"
-        "facial    facial  plant";
+        "megagrep  journal  journal"
+        "scope     scope    scope"
+        "facial    facial   plant";
     gap: 1.25em;
     margin-top: 1.5em;
 }
@@ -132,12 +222,34 @@ body {
 .project-scope    { grid-area: scope;    background-color: #57412F; }  /* lifted clay */
 .project-facial   { grid-area: facial;   background-color: #455243; }  /* lifted sage */
 .project-plant    { grid-area: plant;    background-color: #5A3E33; }  /* lifted rust */
+.project-journal  { grid-area: journal;  background-color: #3D4A52; }  /* lifted petrol */
 .project-megagrep {
     grid-area: megagrep;
     background-color: #4F4831;  /* lifted khaki */
     display: flex;
     flex-direction: column;
 }
+
+/* Code preview — Obsidian markdown snippet inside journal card */
+.code-preview {
+    font-family: var(--mono);
+    font-size: 8.5pt;
+    line-height: 1.65;
+    background: rgba(0, 0, 0, 0.28);
+    color: rgba(240, 235, 229, 0.88);
+    padding: 1em 1.15em;
+    border-radius: 10px;
+    border: 1px solid rgba(240, 235, 229, 0.05);
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.code-comment { color: var(--text-muted); opacity: 0.65; }
+.code-fence   { color: rgba(240, 235, 229, 0.45); }
+.code-key     { color: #A8C0C7; }   /* dusty teal */
+.code-val     { color: #D49B7C; }   /* matches --link clay */
+.code-bool    { color: #C8B468; }   /* muted ochre */
 
 .wip-graphic {
     margin: auto 0;
@@ -477,6 +589,7 @@ a.book-flat:hover {
             "profile   profile"
             "social    whoami"
             "books     books"
+            "blog      blog"
             "projects  projects";
     }
 
@@ -488,6 +601,7 @@ a.book-flat:hover {
         grid-template-columns: 1fr;
         grid-template-areas:
             "megagrep"
+            "journal"
             "scope"
             "facial"
             "plant";
@@ -503,6 +617,7 @@ a.book-flat:hover {
             "social"
             "whoami"
             "books"
+            "blog"
             "projects";
         padding: 1em;
     }
