@@ -105,10 +105,51 @@
       <p style="text-align: center;">See what I'm reading on <a href="https://tylerkno.ws/what-i-am-reading">StoryGraph</a></p>
     </div>
 
+    <div class="tile tile-blog">
+      <h3>~/blog</h3>
+      <hr>
+      <div class="blog-header">
+        <p class="blog-tagline">Notes from Tyler — long-form writing and field notes from projects.</p>
+        <a class="blog-feed-link" href="https://blog.tylerkno.ws">Read all posts →</a>
+      </div>
+      <div class="blog-posts" data-feed="https://blog.tylerkno.ws/rss.xml" data-blog="https://blog.tylerkno.ws">
+        <a class="blog-post-card blog-post-fallback" href="https://blog.tylerkno.ws">
+          <span class="blog-post-date">blog.tylerkno.ws</span>
+          <h5>Visit the blog</h5>
+          <p class="blog-post-summary">Notes from Tyler — recent writing lives here.</p>
+          <span class="blog-post-link">Open →</span>
+        </a>
+      </div>
+    </div>
+
     <div class="tile tile-projects">
       <h3>~/projects</h3>
       <hr>
       <div class="projects-grid">
+        <div class="project-card project-journal project-featured">
+          <div class="project-content">
+            <h5>journal</h5>
+            <div class="project-meta">
+              <span class="tag">Go</span>
+              <span class="tag">Obsidian</span>
+              <span class="tag">Raspberry Pi</span>
+              <span class="tag">Self-hosted</span>
+            </div>
+            <p>A custom, self-hosted blog backed by my Obsidian vault. Posts live as markdown folders that sync to S3, and a Go service on a Raspberry Pi watches for changes via fsnotify and renders posts on-demand with in-memory HTML caching. Powers <a href="https://blog.tylerkno.ws">blog.tylerkno.ws</a>; source on <a href="https://github.com/tlugger/journal">GitHub</a>.</p>
+          </div>
+          <div class="project-media">
+<pre class="code-preview"><span class="code-comment"># blog/hello-world/index.md</span>
+<span class="code-fence">---</span>
+<span class="code-key">title</span>: <span class="code-val">"Hello World"</span>
+<span class="code-key">slug</span>: <span class="code-val">hello-world</span>
+<span class="code-key">published</span>: <span class="code-bool">true</span>
+<span class="code-key">pubDate</span>: <span class="code-val">2026-05-12</span>
+<span class="code-fence">---</span>
+
+An exercise in building a bespoke,
+artisanal, bug filled blog serving.</pre>
+          </div>
+        </div>
         <div class="project-card project-scope project-featured">
           <div class="project-content">
             <h5>rockiscope</h5>
@@ -117,7 +158,7 @@
               <span class="tag">Raspberry Pi</span>
               <span class="tag">Bluesky</span>
             </div>
-            <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi. Check it out on <a href="https://github.com/tlugger/rockiscope">GitHub</a>.</p>
+            <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi. See today's pick on the <a href="https://rockies.tylerkno.ws">dashboard</a>.</p>
           </div>
           <div class="project-media">
             <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:qqgwambml7qxpipc6tis5cis/app.bsky.feed.post/3mjaz4eqej52f" data-bluesky-cid="bafyreiavw4ic7nig3ecpzswola6umxve3cwislqludy7p5rto5jxzljfw4" data-bluesky-embed-color-mode="system"><p lang="">⚾ Rockies @ San Diego Padres
@@ -166,5 +207,76 @@
       </div>
     </div>
   </main>
+
+  <script>
+    (function () {
+      var container = document.querySelector('.blog-posts');
+      if (!container) return;
+      var feedUrl = container.getAttribute('data-feed');
+      var blogUrl = container.getAttribute('data-blog');
+      if (!feedUrl) return;
+
+      fetch(feedUrl, { headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' } })
+        .then(function (res) {
+          if (!res.ok) throw new Error('feed status ' + res.status);
+          return res.text();
+        })
+        .then(function (text) {
+          var doc = new DOMParser().parseFromString(text, 'application/xml');
+          if (doc.getElementsByTagName('parsererror').length) throw new Error('bad XML');
+          var items = Array.prototype.slice.call(doc.getElementsByTagName('item')).slice(0, 3);
+          if (!items.length) return;
+
+          var fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          var frag = document.createDocumentFragment();
+          items.forEach(function (item) {
+            var get = function (tag) {
+              var el = item.getElementsByTagName(tag)[0];
+              return el ? (el.textContent || '').trim() : '';
+            };
+            var title = get('title');
+            var link = get('link') || blogUrl;
+            var pub = get('pubDate');
+            var summary = get('description');
+
+            var card = document.createElement('a');
+            card.className = 'blog-post-card';
+            card.href = link;
+
+            var date = document.createElement('span');
+            date.className = 'blog-post-date';
+            if (pub) {
+              var d = new Date(pub);
+              date.textContent = isNaN(d.getTime()) ? pub : fmt.format(d);
+            }
+            card.appendChild(date);
+
+            var h = document.createElement('h5');
+            h.textContent = title || 'Untitled';
+            card.appendChild(h);
+
+            if (summary) {
+              var p = document.createElement('p');
+              p.className = 'blog-post-summary';
+              p.textContent = summary;
+              card.appendChild(p);
+            }
+
+            var more = document.createElement('span');
+            more.className = 'blog-post-link';
+            more.textContent = 'Read →';
+            card.appendChild(more);
+
+            frag.appendChild(card);
+          });
+
+          container.innerHTML = '';
+          container.appendChild(frag);
+        })
+        .catch(function () {
+          /* leave the static fallback card in place */
+        });
+    })();
+  </script>
 </body>
 </html>
