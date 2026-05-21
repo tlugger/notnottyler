@@ -189,9 +189,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-        "megagrep  journal  journal"
-        "scope     scope    scope"
-        "facial    facial   plant";
+        "wdpkr   journal  journal"
+        "scope   scope    scope"
+        "facial  facial   plant";
     gap: 1.25em;
     margin-top: 1.5em;
 }
@@ -223,8 +223,8 @@ body {
 .project-facial   { grid-area: facial;   background-color: #455243; }  /* lifted sage */
 .project-plant    { grid-area: plant;    background-color: #5A3E33; }  /* lifted rust */
 .project-journal  { grid-area: journal;  background-color: #3D4A52; }  /* lifted petrol */
-.project-megagrep {
-    grid-area: megagrep;
+.project-wdpkr {
+    grid-area: wdpkr;
     background-color: #4F4831;  /* lifted khaki */
     display: flex;
     flex-direction: column;
@@ -243,6 +243,11 @@ body {
     margin: 0;
     white-space: pre;
     overflow-x: auto;
+}
+
+.install-cmd {
+    margin-top: 0.25em;
+    font-size: 9.5pt;
 }
 
 .code-comment { color: var(--text-muted); opacity: 0.65; }
@@ -292,6 +297,17 @@ body {
 
 .project-featured .project-media {
     max-height: 380px;
+}
+
+/* Rockiscope spans a full-width row, so split text/embed 50/50 */
+.project-scope.project-featured {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.project-scope .project-media {
+    max-height: 340px;
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 .project-content { min-width: 0; }
@@ -600,7 +616,7 @@ a.book-flat:hover {
     .projects-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "megagrep"
+            "wdpkr"
             "journal"
             "scope"
             "facial"
