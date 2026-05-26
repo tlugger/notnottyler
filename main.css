@@ -609,7 +609,8 @@ a.book-flat:hover {
             "projects  projects";
     }
 
-    .project-featured {
+    .project-featured,
+    .project-scope.project-featured {
         grid-template-columns: 1fr;
     }
 
@@ -645,6 +646,19 @@ a.book-flat:hover {
 
     .profile {
         max-width: 8em;
+    }
+
+    .shelf {
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    a.book-flat {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 0.5em;
     }
 
     .video-span {
