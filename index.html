@@ -124,21 +124,90 @@
     </div>
 
     <div class="tile tile-projects">
-      <h3>pwd</h3>
+      <h3>git log --oneline</h3>
       <hr>
-      <div class="projects-grid">
-        <div class="project-card project-journal project-featured">
-          <div class="project-content">
-            <h5>journal</h5>
-            <div class="project-meta">
-              <span class="tag">Go</span>
-              <span class="tag">Obsidian</span>
-              <span class="tag">Raspberry Pi</span>
-              <span class="tag">Self-hosted</span>
+      <div class="showcase">
+        <div class="gitlog">
+
+          <div class="commit commit-wtwlt open">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="true" aria-controls="commit-wtwlt">
+              <a class="commit-hash" href="https://github.com/tlugger/wtwlt/commit/39c1c9a814bef1edb9a47a434c4f23d2bba74b84" data-repo="tlugger/wtwlt" target="_blank" rel="noopener" title="View latest commit on GitHub">39c1c9a</a>
+              <span class="commit-name">wtwlt</span>
+              <span class="commit-desc">hyperlocal weather station · edge sensors + forecast</span>
+              <span class="commit-branch">go</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
             </div>
-            <p>A custom, self-hosted blog backed by my Obsidian vault. Posts live as markdown folders that sync to S3, and a Go service on a Raspberry Pi watches for changes via fsnotify and renders posts on-demand with in-memory HTML caching. Powers <a href="https://blog.tylerkno.ws">blog.tylerkno.ws</a>; source on <a href="https://github.com/tlugger/journal">GitHub</a>.</p>
+            <div class="commit-detail" id="commit-wtwlt">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">ESP32</span>
+                  <span class="tag">Go</span>
+                  <span class="tag">MQTT</span>
+                  <span class="tag">SQLite</span>
+                  <span class="tag">IoT</span>
+                </div>
+                <p>A self-hosted, hyperlocal weather station. A solar-powered ESP32 sensor node samples temperature, humidity, pressure, wind, rain, UV and lightning, then publishes over MQTT to a Raspberry Pi. A single Go service ingests the readings into SQLite and serves an earth-toned dashboard whose palette shifts with the time of day — overlaying a keyless forecast (Open-Meteo / NWS) on every chart.</p>
+                <p class="commit-links">
+                  <a href="https://weather.tylerkno.ws">Open dashboard →</a>
+                  <a href="https://github.com/tlugger/wtwlt">Source →</a>
+                </p>
+                <a class="commit-media commit-shot" href="https://weather.tylerkno.ws" title="Open the wtwlt dashboard">
+                  <img src="assets/wtwlt-dark.png" alt="wtwlt weather dashboard in its deep-green day theme">
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="project-media">
+
+          <div class="commit commit-wdpkr">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="false" aria-controls="commit-wdpkr">
+              <a class="commit-hash" href="https://github.com/duckedup/wdpkr/commit/52bee8cff3da4efdbaf8d0e5205106a64bf02611" data-repo="duckedup/wdpkr" target="_blank" rel="noopener" title="View latest commit on GitHub">52bee8c</a>
+              <span class="commit-name">wdpkr</span>
+              <span class="commit-desc">semantic code search for AI agents</span>
+              <span class="commit-branch">rust</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
+            </div>
+            <div class="commit-detail" id="commit-wdpkr">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">Rust</span>
+                  <span class="tag">CLI</span>
+                  <span class="tag">Vector Search</span>
+                  <span class="tag">AI Agents</span>
+                </div>
+                <p>A CLI tool that provides semantic code search for AI agents. Taps through your codebase to find exactly where things live.</p>
+                <p class="commit-links">
+                  <a href="https://wdpkr.duckedup.org">Open docs →</a>
+                  <a href="https://github.com/duckedup/wdpkr">Source →</a>
+                </p>
+                <div class="commit-media">
+                  <pre class="code-preview install-cmd">cargo install wdpkr</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="commit commit-journal">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="false" aria-controls="commit-journal">
+              <a class="commit-hash" href="https://github.com/tlugger/journal/commit/68ca256eb1609978ef78870e2d8e7104c92f511a" data-repo="tlugger/journal" target="_blank" rel="noopener" title="View latest commit on GitHub">68ca256</a>
+              <span class="commit-name">journal</span>
+              <span class="commit-desc">obsidian-backed self-hosted blog</span>
+              <span class="commit-branch">go</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
+            </div>
+            <div class="commit-detail" id="commit-journal">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">Go</span>
+                  <span class="tag">Obsidian</span>
+                  <span class="tag">Raspberry Pi</span>
+                  <span class="tag">Self-hosted</span>
+                </div>
+                <p>A custom, self-hosted blog backed by my Obsidian vault. Posts live as markdown folders that sync to S3, and a Go service on a Raspberry Pi watches for changes via fsnotify and renders posts on-demand with in-memory HTML caching.</p>
+                <p class="commit-links">
+                  <a href="https://blog.tylerkno.ws">Open blog →</a>
+                  <a href="https://github.com/tlugger/journal">Source →</a>
+                </p>
+                <div class="commit-media">
 <pre class="code-preview"><span class="code-comment"># blog/hello-world/index.md</span>
 <span class="code-fence">---</span>
 <span class="code-key">title</span>: <span class="code-val">"Hello World"</span>
@@ -149,60 +218,89 @@
 
 An exercise in building a bespoke,
 artisanal, bug filled blog serving.</pre>
-          </div>
-        </div>
-        <div class="project-card project-scope project-featured">
-          <div class="project-content">
-            <h5>rockiscope</h5>
-            <div class="project-meta">
-              <span class="tag">Go</span>
-              <span class="tag">Raspberry Pi</span>
-              <span class="tag">Bluesky</span>
+                </div>
+              </div>
             </div>
-            <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi. See today's pick on the <a href="https://rockies.tylerkno.ws">dashboard</a>.</p>
           </div>
-          <div class="project-media">
+
+          <div class="commit commit-scope">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="false" aria-controls="commit-scope">
+              <a class="commit-hash" href="https://github.com/tlugger/rockiscope/commit/bc896cb8ad8a6981ee4af23a36c588957e64b480" data-repo="tlugger/rockiscope" target="_blank" rel="noopener" title="View latest commit on GitHub">bc896cb</a>
+              <span class="commit-name">rockiscope</span>
+              <span class="commit-desc">daily rockies horoscope + game-prediction bot</span>
+              <span class="commit-branch">go</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
+            </div>
+            <div class="commit-detail" id="commit-scope">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">Go</span>
+                  <span class="tag">Raspberry Pi</span>
+                  <span class="tag">Bluesky</span>
+                </div>
+                <p>A <a href="https://bsky.app/profile/rockiscope.bsky.social">Bluesky bot</a> that posts the daily horoscope and game prediction for the Colorado Rockies. The Rockies are a Cancer (founded July 5, 1991), so the bot scrapes the daily Cancer horoscope and combines it with a weighted prediction model using team stats, pitcher matchups, and a dash of celestial influence. Built in Go and runs on a Raspberry Pi.</p>
+                <p class="commit-links">
+                  <a href="https://rockies.tylerkno.ws">Open dashboard →</a>
+                  <a href="https://github.com/tlugger/rockiscope">Source →</a>
+                </p>
+                <div class="commit-media">
             <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:qqgwambml7qxpipc6tis5cis/app.bsky.feed.post/3mjaz4eqej52f" data-bluesky-cid="bafyreiavw4ic7nig3ecpzswola6umxve3cwislqludy7p5rto5jxzljfw4" data-bluesky-embed-color-mode="system"><p lang="">⚾ Rockies @ San Diego Padres
             🕐 6:40 PM MDT at Petco Park
             🪖 Ryan Feltner (4.32 ERA, 1-0)
             📊 6-8 | vs SD: 0-2 | L2
 
             🔮 A slight celestial nudge toward a Rockies defeat (63%)<br><br><a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis/post/3mjaz4eqej52f?ref_src=embed">[image or embed]</a></p>&mdash; Rockiscope ♋ (<a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis?ref_src=embed">@rockiscope.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:qqgwambml7qxpipc6tis5cis/post/3mjaz4eqej52f?ref_src=embed">Apr 11, 2026 at 5:40 PM</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="project-card project-wdpkr">
-          <h5>wdpkr</h5>
-          <div class="project-meta">
-            <span class="tag">CLI</span>
-            <span class="tag">Vector Search</span>
-            <span class="tag">AI Agents</span>
+
+          <div class="commit commit-facial">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="false" aria-controls="commit-facial">
+              <a class="commit-hash" href="https://github.com/tlugger/face_recognize/commit/a6cbb435d0f05286df38a03d1522136d81cb8709" data-repo="tlugger/face_recognize" target="_blank" rel="noopener" title="View latest commit on GitHub">a6cbb43</a>
+              <span class="commit-name">facial-recognition</span>
+              <span class="commit-desc">computer vision on a distributed IoT platform</span>
+              <span class="commit-branch">python</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
+            </div>
+            <div class="commit-detail" id="commit-facial">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">Python</span>
+                  <span class="tag">IoT</span>
+                  <span class="tag">Computer Vision</span>
+                </div>
+                <p>Over the summer of my first internship, I integrated facial recognition into a distributed IoT platform. This led to a couple of applications including an interface-free coffee counter and a self-targeting dart gun!</p>
+                <div class="commit-media video-span">
+                  <iframe src="https://www.youtube.com/embed/ClWYLkUniJc" frameborder="0" allow="accelerometer;" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>A CLI tool that provides semantic code search for AI agents. Taps through your codebase to find exactly where things live. Source on <a href="https://github.com/duckedup/wdpkr">GitHub</a>.</p>
-          <pre class="code-preview install-cmd">cargo install wdpkr</pre>
-        </div>
-        <div class="project-card project-facial">
-          <h5>facial recognition</h5>
-          <div class="project-meta">
-            <span class="tag">Python</span>
-            <span class="tag">IoT</span>
-            <span class="tag">Computer Vision</span>
+
+          <div class="commit commit-plant">
+            <div class="commit-row" role="button" tabindex="0" aria-expanded="false" aria-controls="commit-plant">
+              <a class="commit-hash" href="https://github.com/tlugger/herbert_edge/commit/cdc9bdd154b9ba094dcc0b688fd6f8e6b2534bf2" data-repo="tlugger/herbert_edge" target="_blank" rel="noopener" title="View latest commit on GitHub">cdc9bdd</a>
+              <span class="commit-name">desk-plant</span>
+              <span class="commit-desc">automated irrigation · Hackster front page</span>
+              <span class="commit-branch">python</span>
+              <span class="commit-chev" aria-hidden="true">›</span>
+            </div>
+            <div class="commit-detail" id="commit-plant">
+              <div class="commit-detail-inner">
+                <div class="project-meta">
+                  <span class="tag">Raspberry Pi</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Hardware</span>
+                </div>
+                <p>To keep my desk plant from dying I automated its watering using a Raspberry Pi, hobby pump, and a soil moisture sensor. This project was featured on the front page of <a href="http://hackster.io">hackster.io</a>.</p>
+                <div class="commit-media article">
+                  <iframe frameborder='0' scrolling='no' src='https://www.hackster.io/notnottyler/herb-ert-a-desk-plant-with-automated-irrigation-b03086/embed'></iframe>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>Over the summer of my first internship, I integrated facial recognition into a distributed IoT platform. This led to a couple of applications including an interface-free coffee counter and a self-targeting dart gun!</p>
-          <div class="project-media video-span">
-            <iframe src="https://www.youtube.com/embed/ClWYLkUniJc" frameborder="0" allow="accelerometer;" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="project-card project-plant">
-          <h5>desk plant automated-irrigation</h5>
-          <div class="project-meta">
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">Python</span>
-            <span class="tag">Hardware</span>
-          </div>
-          <p>To keep my desk plant from dying I automated its watering using a Raspberry Pi, hobby pump, and a soil moisture sensor. This project was featured on the front page of <a href="http://hackster.io">hackster.io</a>.</p>
-          <div class="project-media article">
-            <iframe frameborder='0' scrolling='no' src='https://www.hackster.io/notnottyler/herb-ert-a-desk-plant-with-automated-irrigation-b03086/embed'></iframe>
-          </div>
+
         </div>
       </div>
     </div>
@@ -276,6 +374,63 @@ artisanal, bug filled blog serving.</pre>
         .catch(function () {
           /* leave the static fallback card in place */
         });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var rows = document.querySelectorAll('.commit-row');
+      var defaultCommit = document.querySelector('.commit');  // top of the log (wtwlt)
+
+      function openOnly(commit) {
+        Array.prototype.forEach.call(document.querySelectorAll('.commit.open'), function (c) {
+          c.classList.remove('open');
+          var r = c.querySelector('.commit-row');
+          if (r) r.setAttribute('aria-expanded', 'false');
+        });
+        if (commit) {
+          commit.classList.add('open');
+          var r = commit.querySelector('.commit-row');
+          if (r) r.setAttribute('aria-expanded', 'true');
+        }
+      }
+
+      function toggle(row) {
+        var commit = row.parentElement;
+        // Keep exactly one open; closing anything falls back to the top commit.
+        openOnly(commit.classList.contains('open') ? defaultCommit : commit);
+      }
+
+      Array.prototype.forEach.call(rows, function (row) {
+        row.addEventListener('click', function () { toggle(row); });
+        row.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            toggle(row);
+          }
+        });
+      });
+
+      // The commit SHA is its own link — clicking it opens GitHub, not the accordion.
+      Array.prototype.forEach.call(document.querySelectorAll('.commit-hash'), function (link) {
+        link.addEventListener('click', function (e) { e.stopPropagation(); });
+      });
+
+      // Keep each SHA pointing at the live latest commit on the repo's default branch.
+      Array.prototype.forEach.call(document.querySelectorAll('.commit-hash[data-repo]'), function (link) {
+        var repo = link.getAttribute('data-repo');
+        fetch('https://api.github.com/repos/' + repo + '/commits?per_page=1', {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        })
+          .then(function (res) { if (!res.ok) throw new Error('status ' + res.status); return res.json(); })
+          .then(function (data) {
+            if (Array.isArray(data) && data[0] && data[0].sha) {
+              link.textContent = data[0].sha.slice(0, 7);
+              if (data[0].html_url) link.href = data[0].html_url;
+            }
+          })
+          .catch(function () { /* keep the baked-in latest SHA as a fallback */ });
+      });
     })();
   </script>
 </body>
