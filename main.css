@@ -465,36 +465,54 @@ h1 {
     margin-bottom: 0.25em;
 }
 
-/* Social tile */
+/* Social tile — `ls -l` symlink listing (title is the command, rows the output) */
 .tile-social {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
 }
 
-.tile-social .logos-links {
+.ls {
+    flex: 1;
     display: flex;
-    gap: 1.5em;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    font-family: var(--mono);
+    font-size: 9pt;
 }
 
-.logos-img {
-    border-radius: 0%;
-    max-width: 2.5em;
-    transition: transform 0.2s ease;
+.lrow {
+    display: grid;
+    grid-template-columns: auto 18px auto 1fr;
+    align-items: center;
+    gap: 0.7em;
+    padding: 0.5em 0.4em;
+    border-radius: 7px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s ease;
 }
 
-.logos-img:hover {
-    transform: scale(1.15);
+.lrow:hover { background: rgba(240, 235, 229, 0.06); }
+
+.lrow .perm { color: rgba(240, 235, 229, 0.38); }
+
+.lrow img {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
-.linkedin {
-    background-color: var(--tint-books);
-    border-radius: 5px;
+.lrow .lname { color: rgba(240, 235, 229, 0.92); }
+
+.lrow .ltarget {
+    min-width: 0;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.lrow .ltarget::before { content: '-> '; color: rgba(240, 235, 229, 0.35); }
 
 /* Typography */
 a {
