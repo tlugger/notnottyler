@@ -44,7 +44,9 @@ body {
 /* Bento Grid */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* whoami (col 1) gets more room; readme/books (cols 2+3) gives some up.
+       profile (cols 1+2) and social (col 3) stay 2:1, unchanged. */
+    grid-template-columns: 1.35fr 0.65fr 1fr;
     grid-template-areas:
         "profile   profile   social"
         "whoami    books      books"
@@ -97,6 +99,42 @@ body {
 .tile-books    { grid-area: books;    background-color: var(--tint-books); }
 .tile-projects { grid-area: projects; background-color: var(--tint-projects); }
 .tile-blog     { grid-area: blog;     background-color: var(--tint-blog); }
+
+/* whoami — rendered as a `man tyler` page */
+.man-sec {
+    margin: 1.15em 0 0.4em;
+    font-family: var(--mono);
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+}
+
+.man-sec:first-of-type { margin-top: 0; }
+
+.man-ind {
+    margin: 0 0 0 1.5em;
+    line-height: 1.55;
+}
+
+.man-ind + .man-ind { margin-top: 0.7em; }
+
+.man-code {
+    font-family: var(--mono);
+    font-size: 9pt;
+    color: rgba(240, 235, 229, 0.9);
+}
+
+.man-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    margin-top: 1.6em;
+    padding-top: 0.75em;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    color: rgba(240, 235, 229, 0.32);
+}
 
 /* Blog tile */
 .blog-header {
