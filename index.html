@@ -211,12 +211,12 @@
                   <span class="tag">Serverless</span>
                   <span class="tag">Discord</span>
                 </div>
-                <p>A tiny serverless watchdog for my self-hosted sites. Every 5 minutes an AWS Lambda pokes each site — down goes to a Discord ping, back up pings again, and a TLS cert within 14 days of expiring gets a heads-up. Pure Python standard library plus the runtime's bundled <code>boto3</code>, so there are zero dependencies to install. It runs itself and costs <strong>$0/month</strong>.</p>
+                <p>A tiny serverless watchdog for my self-hosted sites. Every 5 minutes an AWS Lambda pokes each site. If one goes down it fires a Discord ping, pings again when it comes back, and warns me when a TLS cert is within 14 days of expiring. Pure Python standard library plus the runtime's bundled <code>boto3</code>, so there are zero dependencies to install. It runs itself and costs <strong>$0/month</strong>.</p>
                 <p class="commit-links">
                   <a href="https://github.com/tlugger/up">Source →</a>
                 </p>
                 <a class="commit-media commit-shot" href="https://github.com/tlugger/up" title="View up on GitHub">
-                  <img src="assets/up-down.png" alt="Discord DOWN alert from up — every on-call engineer's worst nightmare">
+                  <img src="assets/up-down.png" alt="Discord DOWN alert from up, every on-call engineer's worst nightmare">
                 </a>
               </div>
             </div>

@@ -228,7 +228,7 @@ body {
 /* Per-project accents (legible name + branch pill on the dark log) */
 .commit-wtwlt   { --accent: #8AAAA2; }  /* storm teal */
 .commit-wdpkr   { --accent: #C07A6F; }  /* brick */
-.commit-up      { --accent: #F0413B; }  /* alert red — on-call's worst nightmare */
+.commit-up      { --accent: #F0413B; }  /* alert red, on-call's worst nightmare */
 .commit-journal { --accent: #7D9AA8; }  /* petrol */
 .commit-scope   { --accent: #A488C0; }  /* plum */
 .commit-facial  { --accent: #7FA07F; }  /* green */
