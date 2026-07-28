@@ -8,7 +8,7 @@
     --toggle-bg: rgba(61, 53, 47, 0.12);
     --toggle-text: #3D352F;
 
-    /* Tile colors — chromatic earth-tone family, low saturation */
+    /* Tile colors - chromatic earth-tone family, low saturation */
     --tint-profile:  #463528;  /* warm clay */
     --tint-social:   #394539;  /* sage */
     --tint-whoami:   #4A3530;  /* rust */
@@ -70,7 +70,7 @@ body {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Subtle paper-grain noise — kills the "digital flatness" */
+/* Subtle paper-grain noise - kills the "digital flatness" */
 .tile::before {
     content: '';
     position: absolute;
@@ -100,7 +100,7 @@ body {
 .tile-projects { grid-area: projects; background-color: var(--tint-projects); }
 .tile-blog     { grid-area: blog;     background-color: var(--tint-blog); }
 
-/* whoami — rendered as a `man tyler` page */
+/* whoami - rendered as a `man tyler` page */
 .man-sec {
     margin: 1.15em 0 0.4em;
     font-family: var(--mono);
@@ -222,7 +222,7 @@ body {
     font-size: 9pt;
 }
 
-/* ===== Projects showcase — expandable git log (top row open by default) ===== */
+/* ===== Projects showcase - expandable git log (top row open by default) ===== */
 .showcase { margin-top: 1.5em; }
 
 /* Per-project accents (legible name + branch pill on the dark log) */
@@ -247,10 +247,10 @@ body {
 .commit-links a { text-decoration: none; }
 .commit-links a:hover { text-decoration: underline; }
 
-/* wtwlt hero shot — spans the full detail width with a faded lower edge */
+/* wtwlt hero shot - spans the full detail width with a faded lower edge */
 .commit-wtwlt .commit-media { max-width: 100%; }
 
-/* up alert shot — a framed Discord DOWN ping at its native size */
+/* up alert shot - a framed Discord DOWN ping at its native size */
 .commit-up .commit-shot {
     max-width: 395px;
     -webkit-mask-image: none;
@@ -369,7 +369,7 @@ a.commit-hash:hover {
 
 .commit.open .commit-chev { transform: rotate(90deg); }
 
-/* Accordion body — animates open via grid-template-rows 0fr → 1fr */
+/* Accordion body - animates open via grid-template-rows 0fr → 1fr */
 .commit-detail {
     display: grid;
     grid-template-rows: 0fr;
@@ -378,7 +378,7 @@ a.commit-hash:hover {
 
 .commit.open .commit-detail { grid-template-rows: 1fr; }
 
-/* Horizontal padding only — block-direction padding on the grid item would
+/* Horizontal padding only - block-direction padding on the grid item would
    defeat the 0fr collapse, so vertical breathing room comes from child margins. */
 .commit-detail-inner {
     overflow: hidden;
@@ -413,7 +413,7 @@ a.commit-hash:hover {
     margin: 0;
 }
 
-/* Code preview — Obsidian markdown snippet + install commands */
+/* Code preview - Obsidian markdown snippet + install commands */
 .code-preview {
     font-family: var(--mono);
     font-size: 8.5pt;
@@ -439,7 +439,7 @@ a.commit-hash:hover {
 .code-val     { color: #D49B7C; }   /* matches --link clay */
 .code-bool    { color: #C8B468; }   /* muted ochre */
 
-/* Tag chips — small mono pills */
+/* Tag chips - small mono pills */
 .project-meta {
     display: flex;
     flex-wrap: wrap;
@@ -477,7 +477,7 @@ h1 {
     margin-bottom: 0.25em;
 }
 
-/* Social tile — `ls -l` symlink listing (title is the command, rows the output) */
+/* Social tile - `ls -l` symlink listing (title is the command, rows the output) */
 .tile-social {
     display: flex;
     flex-direction: column;
@@ -570,7 +570,7 @@ ul {
     list-style: circled-digits;
 }
 
-/* Video embeds — uniform 16:9 inside project media */
+/* Video embeds - uniform 16:9 inside project media */
 .video-span {
     width: 100%;
 }
