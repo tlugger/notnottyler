@@ -228,6 +228,7 @@ body {
 /* Per-project accents (legible name + branch pill on the dark log) */
 .commit-wtwlt   { --accent: #8AAAA2; }  /* storm teal */
 .commit-wdpkr   { --accent: #C07A6F; }  /* brick */
+.commit-up      { --accent: #F0413B; }  /* alert red — on-call's worst nightmare */
 .commit-journal { --accent: #7D9AA8; }  /* petrol */
 .commit-scope   { --accent: #A488C0; }  /* plum */
 .commit-facial  { --accent: #7FA07F; }  /* green */
@@ -248,6 +249,17 @@ body {
 
 /* wtwlt hero shot — spans the full detail width with a faded lower edge */
 .commit-wtwlt .commit-media { max-width: 100%; }
+
+/* up alert shot — a framed Discord DOWN ping at its native size */
+.commit-up .commit-shot {
+    max-width: 395px;
+    -webkit-mask-image: none;
+    mask-image: none;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.commit-up .commit-shot img { width: 100%; }
 
 .commit-shot {
     display: block;
